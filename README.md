@@ -1,29 +1,7 @@
 # pomodore-timer
 
-## Project setup
-```
-yarn install
-```
+This project is a web tool for the use of the Pomodoro study technique.
 
-### Compiles and hot-reloads for development
-```
-yarn serve
-```
+## License
 
-### Compiles and minifies for production
-```
-yarn build
-```
-
-### Run your unit tests
-```
-yarn test:unit
-```
-
-### Lints and fixes files
-```
-yarn lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+[Creative Commons Attribution 4.0 International License](https://creativecommons.org/licenses/by/4.0/)
