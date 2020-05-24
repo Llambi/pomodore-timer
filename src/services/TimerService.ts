@@ -1,6 +1,7 @@
 import { Timer } from "@/types/types";
-
+import { db } from "../repositories/firestore";
 export class TimerService {
+  private db = db;
   private dataTimers = [
     {
       id: 1,
@@ -13,9 +14,22 @@ export class TimerService {
       timePassed: 0
     }
   ];
-  public getAlltimers(): Promise<Timer[]> {
-    // Mock, WIP: Connect to firestore
-    const timers = Promise.resolve(this.dataTimers);
+  public getAlltimers(): Timer[] {
+    const timers: Timer[] = [];
+    this.db
+      .collection("/users")
+      .doc("ckhHAlUdAbe6u60Pf803")
+      .collection("/timers")
+      .orderBy("order")
+      .onSnapshot(observer => {
+        observer.docs.forEach(doc => {
+          timers.push({
+            id: doc.id,
+            timeLimit: doc.data().timeLimit * 60, // Convert to minutes
+            timePassed: 0
+          });
+        });
+      });
     return timers;
   }
 }
